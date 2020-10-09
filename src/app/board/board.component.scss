@@ -1,0 +1,36 @@
+:host {
+  max-width: 950px;
+  margin: 0 auto;
+  display: block;
+  padding: 40px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.board {
+  &__title {
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &__text-not-found {
+    text-align: center;
+  }
+
+  &__header-content,
+  &__gallery-content,
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .mat-warn {
+      margin-right: 15px;
+    }
+  }
+}

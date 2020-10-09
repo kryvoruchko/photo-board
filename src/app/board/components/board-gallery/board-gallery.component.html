@@ -1,0 +1,27 @@
+<div class="board-gallery__container" *ngIf="board && board.images">
+  <div class="board-gallery__images" *ngFor="let image of board.images">
+    <img class="board-gallery__image" [src]="imageUrl + '/' + image.url">
+
+    <div class="board-gallery__tags">
+      <div class="tags-ctx">
+        <ng-container
+          [ngTemplateOutlet]="tagsList"
+          [ngTemplateOutletContext]="{tags: image.tags}"
+        ></ng-container>
+      </div>
+
+      <div class="hidden-tags-container">
+        <ng-container
+          [ngTemplateOutlet]="tagsList"
+          [ngTemplateOutletContext]="{tags: image.tags}"
+        ></ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #tagsList let-tags="tags">
+  <ng-container class="tag-item" *ngFor="let tag of tags; let i = index">
+    {{ tag.tag.en }}<ng-container *ngIf="i !== (tags.length - 1)">, </ng-container>
+  </ng-container>
+</ng-template>

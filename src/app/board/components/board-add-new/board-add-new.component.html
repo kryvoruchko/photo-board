@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Create board</h2>
+
+<mat-dialog-content>
+  <form class="example-form"
+    [formGroup]="createBoard"
+    (ngSubmit)="create()">
+
+    <mat-form-field class="full-width">
+      <mat-label>Board name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button
+    mat-stroked-button
+    mat-dialog-close
+    color="warn">
+    Cancel
+  </button>
+
+  <button
+    mat-stroked-button
+    color="primary"
+    [disabled]="createBoard.invalid"
+    (click)="create()">
+    Create
+  </button>
+</mat-dialog-actions>

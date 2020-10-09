@@ -1,0 +1,40 @@
+<div class="board-header__container">
+  <div class="board-header__upload-image">
+
+    <input #image
+      hidden="true"
+      type="file"
+      onclick="this.value=null"
+      (change)="addImage($event)"
+      accept="image/jpeg,image/png,image/gif"/>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="image.click()">
+      Add new image
+    </button>
+  </div>
+
+  <div class="board-header__list-boards">
+    <mat-form-field appearance="fill">
+      <mat-label>Selectan existing board</mat-label>
+
+      <mat-select
+        [(value)]="selectedItem"
+        (selectionChange)="selectBoard($event)">
+        <mat-option
+          *ngFor="let board of boards"
+          [value]="board._id">
+          {{ board.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <button
+    mat-stroked-button
+    (click)="openCreateBoardDialog()"
+    color="primary">
+    Create a new board
+  </button>
+</div>

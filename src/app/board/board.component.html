@@ -1,0 +1,40 @@
+<h3 class="board__title">Photo Board</h3>
+
+<div class="board__container">
+  <div class="board__header-content">
+    <app-board-header
+      [boards]="boardsList"
+      [board]="board"
+      (onCreateBoard)="create($event)"
+      (onSelectedBoard)="getBoardById($event)"
+    ></app-board-header>
+  </div>
+
+  <h3 *ngIf="board; else notFoundBoard">Selected board: {{ board?.name }}</h3>
+
+  <ng-template #notFoundBoard>
+    <h3 class="board__text-not-found">Please, create your first photo board</h3>
+  </ng-template>
+
+  <div class="board__gallery-content">
+    <app-board-gallery
+      [board]="board"
+    ></app-board-gallery>
+  </div>
+
+  <div class="board__actions" *ngIf="board?.isDraft">
+    <button
+      mat-stroked-button
+      color="warn"
+      (click)="update(false)">
+      Dismiss Changes
+    </button>
+
+    <button
+      mat-stroked-button
+      color="primary"
+      (click)="update(true)">
+      Save Board
+    </button>
+  </div>
+</div>

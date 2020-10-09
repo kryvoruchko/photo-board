@@ -1,10 +1,5 @@
 # photo-board
 
-1. npm install
-2. npm run start
-
-
-
 1. I didn’t do error handler (that would take more time but it can be actually done)
 2. Also there is an option to move methods in controller outside into separate server and use them out of there.
 3. I made the draft (pictures) state is saved on server in order there is an opportunity to continue work with it during page reload. I could set it on front end only but in this case data would be lost during reload. 
